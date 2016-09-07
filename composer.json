@@ -1,0 +1,17 @@
+{
+	"name": "asgeirsh/ssbapi",
+	"description": "Et enkelt, objektorientert PHP-verktøy for å spørre ut SSBs API.",
+	"homepage": "http://github.com/AsgeirSH/SSBapi",
+	"authors": [
+		{
+			"name": "Asgeir Stavik Hustad",
+			"email": "asgeirsh@ukmmedia.no",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"AsgeirSH\\SSBapi\\": "src"
+		}
+	}
+}
