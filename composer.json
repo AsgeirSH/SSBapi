@@ -9,9 +9,18 @@
 			"role": "Developer"
 		}
 	],
+	"repositories": [
+		{
+			"url": "https://github.com/AsgeirSH/curllib",
+			"type": "git"
+		}
+	],
+	"require": {
+		"asgeirsh/curllib": "dev-master"
+	},
 	"autoload": {
 		"psr-4": {
-			"AsgeirSH\\SSBapi\\": "src"
+			"AsgeirSH\\SSBapi\\": "src/"
 		}
 	}
 }

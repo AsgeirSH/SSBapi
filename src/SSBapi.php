@@ -3,20 +3,27 @@
 namespace AsgeirSH\SSBapi;
 
 require_once(__DIR__.'/SSBapiInterface.php');
-require_once('UKM/curl.class.php');
+#require_once('UKM/curl.class.php');
 
 use AsgeirSH\SSBapi\SSBapiInterface;
+use AsgeirSH\CURLlib\CURLInterface;
 
 class SSBapi implements SSBapiInterface {
 	# Selve spørringen.
 	private $query = null;
 	# Ressurs-ID. Brukes til å finne URLen vi curler til.
 	private $resource = null;
+	# CURL-interface. Brukes for å kunne endre CURL-implementasjon.
+	private $curlInterface = "AsgeirSH\CURLlib\CURL";
 
 	public function setResource($resource) {
 		$this->resource = $resource;
 	}
 	
+	public function setCURLInterface(CURLInterface $interface) {
+		$this->curlInterface = $interface;
+	}
+
 	public function run() {
 		if(null == $this->resource) {
 			throw new Exception("Kan ikke kjøre en SSB-spørring mot ukjent ressurs.");
@@ -25,9 +32,9 @@ class SSBapi implements SSBapiInterface {
 		# Build full API-url
 		$url = self::API_URL . $this->resource;
 
-		$curl = new \UKMCURL();
-		$curl->post($this->query());
-		$result = $curl->process($url);
+		$curl = new $this->curlInterface($url, 'POST');
+		$curl->setJson($this->query());
+		$result = $curl->exec();
 		return $result;
 	}
 

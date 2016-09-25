@@ -6,9 +6,7 @@ Et enkelt, objektorientert PHP-verktøy for å spørre ut SSBs API. Verktøyet b
 Kildekodekrav
 -------------
 Biblioteket krever kun open source-kildekode, spesifikt:
- - UKMs cURL-klasse (https://github.com/UKMNorge/UKMapi/blob/master/curl.class.php). Denne må for øyeblikket finnes i pathen UKM/curl.class.php.
-
-Hvis du ikke vil benytte UKMs cURL-klasse vil det ikke være vanskelig å skrive om biblioteket til å bruke en annen klasse. Alt som kreves er at det kan gjøre POST-requests og ta i mot og sende JSON-data.
+- [Min egen CURL-wrapper](https://github.com/AsgeirSH/CURLlib/). Denne requires av composer, så du trenger ikke gjøre noe. Du kan enkelt skrive din egen CURL-wrapper, men den må i så fall implementere CURLInterface fra AsgeirSH\CURLlib.
 
 Hvordan installere biblioteket?
 -------------------------------
@@ -56,6 +54,5 @@ $result = $SSBapi->run();
 
 TODO / Veien videre:
 --------------------
-- Implementere et CURLInterface, slik at man selv kan velge en hvilken som helst cURL-klasse / wrapper.
 - Skriv tester
 - Release en versjon.
