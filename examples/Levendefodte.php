@@ -3,7 +3,9 @@
 # Bruker du composer holder det å require autoload.php:
 # require __DIR__ . '/vendor/autoload.php';
 # Alternativt kan du require korrekt fil direkte:
-require_once('../src/SSBapi.php');
+#require_once('../src/SSBapi.php');
+
+use \AsgeirSH\SSBapi\SSBapi;
 
 class Levendefodte extends SSBapi {
 
